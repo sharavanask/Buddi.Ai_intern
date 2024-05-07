@@ -1,3 +1,6 @@
+#finding the epdilon value by finding the absolute difference between the original value and estimated valuie
+
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
