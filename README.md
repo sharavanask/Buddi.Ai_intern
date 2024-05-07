@@ -5,7 +5,7 @@
 
 1.Estimation of epsilon for a quadratic polynomiasl for integers
 
-#Assignment 2
+# Assignment 2
 
 1A.Estimation of epsilon for a quadratic polynomial for a real numbers
 
