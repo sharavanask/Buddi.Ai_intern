@@ -1,36 +1,40 @@
 import numpy as np
-s=[10,6,4]
-p=[]
-n=10
-cp=[]
-sus=sum(s)
-for i in s:
-    p.append(i/sus)
-cpi=0
-for i in p:
-    cpi+=i
-    cp.append(cpi)
-def getsample(x):
-    for i in range(len(cp)):
-        if x<cp[i]:
-            return cp[i]
-sample=[]
-for i in range(n):
-    x=np.random.uniform(0,1)
-    #x=0.7
-    sam=getsample(x)
-    sample.append(sam)
-sample1=[]
-for i in sample:
-    sample1.append(s[cp.index(i)])
-sample2=[]
-for i in sample1:
-    if i ==6:
-        sample2.append('Apple')
-    elif i ==10:
-        sample2.append('Banana')
-    elif i ==4:
-        sample2.append('Carrot')
-print(p)
-print(cp)        
-print(sample2)
+#function to draw sample from the distribution
+def draw_sample(s, n):
+    p=[]
+    values=list(s.values())
+    sumv=sum(values)
+    #generating probabilistic values 
+    for i in values:
+        p.append(i/sumv)
+    cdf=[]
+    sample1=[]
+    c=0
+    keys=list(s.keys())
+    #generating cumulative function
+    for i in p:
+        c+=i
+        cdf.append(c)
+    X=[]
+    #generating random uniformly distributed values
+    for i in range(n):
+        x=np.random.uniform(0,1)
+        X.append(x)
+    #drawing samples
+    for i in X:
+        j = 0
+        found = False
+        while j < len(cdf) and not found:
+            if i < cdf[j]:
+                sample1.append(keys[j])
+                found = True
+            j += 1
+    print("the distribution =",s)
+    print("the probability values =",p)
+    print("the cumulative values =",cdf)
+    return sample1
+s = {'Apple': 10, 'Banana': 6, 'Carrot': 4}
+n = 10
+#passing the dictionary values and n into random sampler functions
+samples = draw_sample(s, n)
+print(samples)
