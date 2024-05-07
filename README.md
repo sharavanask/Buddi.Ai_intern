@@ -11,12 +11,16 @@
 
 # Assignment 3
 
-2.Estimated pi using Momnte claro Method(uniform distribution)
+2.Estimated pi using Monte claro Method(uniform distribution)
 
 # Assignment 4
 
-2A.Estimated pi using Momnte claro Method(normal distribution)
+2A.Estimated pi using Monte claro Method(normal distribution)
 
 # Assignment 5
 
-2B.Estimated pi using Momnte claro Method and smooothening the plot(uniform distribution)
+2B.Estimated pi using Monte claro Method and smooothening the plot(uniform distribution)
+
+# Assignment 6
+
+3.Random sampler 
