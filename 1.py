@@ -1,47 +1,42 @@
-#finding the epdilon value by finding the absolute difference between the original value and estimated valuie
-
-
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
-x = [-3, -2, -1, 0, 1, 2, 3]
-y = [7, 2, 0,0,0, 2, 7]
-b1 = [-3, -2, -1, 0, 1, 2, 3]
-b2 = [-3, -2, -1, 0, 1, 2, 3]
-y1 = []
-e = []
-B1 = []
-B2 = []
 
-for l in x:
-    for i in b1:
-        for j in b2:
-            y1.append((l * i) + (j * (l * l)))
+X = np.array([-3, -2, -1, 0, 1, 2, 3])
+Y = np.array([7, 2, 0, 0, 0, 2, 7])
 
-for i in y1:
-  c=0
-  for j in y:
-    c+=abs(i - j)
-  e.append(c)
-E=[]
-B1=[]
-B2=[]
-for i in b1:
-  for j in b2:
-    B1.append(i)
-    B2.append(j)
-for i in range(0,len(e),7):
-  a=list(e[i:i+7])
-  print(a)
-  E.append(sum(a))
-print(B1)
-print(B2)
-print(E)
-plot = plt.figure()
-ax = plot.add_subplot(111, projection='3d')
-ax.plot_trisurf(B1,B2,E, cmap='viridis', edgecolor='none')
-ax.set_xlabel('Beta1')
-ax.set_ylabel("Beta2")
-ax.set_zlabel('Epsilon')
+beta1= []
+beta2 = []
+E = []
+
+MinEpsilon = 2 ** 30
+B1 = -1
+B2 = -1
+
+for i in range(-3,4,1):
+   for j in range(-3,4,1):
+      b1 = i
+      b2 = j
+      count = 0
+      beta1.append(i)
+      beta2.append(j)
+      for k in range(len(X)):
+          Val = (b1 * X[k]) + (b2 * (X[k]) ** 2)
+          count += abs(Y[k] - Val)
+      E.append(count)
+      if count < MinEpsilon:
+          MinEpsilon = count
+          B1 = b1
+          B2 = b2  
+
+print(f"MinEpsilon is {MinEpsilon} and it occurs when B1 is {B1} and B2 is {B2}")
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_trisurf(beta1, beta2,E, cmap='viridis', edgecolor='none')
+
+ax.set_xlabel('Beta1(B1)')
+ax.set_ylabel('Beta2(B2)')
+ax.set_zlabel('Epsilon(E)')
 ax.set_title('Surface Plot')
+
 plt.show()
