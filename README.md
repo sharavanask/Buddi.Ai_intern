@@ -24,3 +24,12 @@
 # Assignment 6
 
 3.Random sampler 
+
+# Assignment 7
+
+4.Plotting a normal Distribution graph by using its equation,keeping mean as constant and standard deviation as changing
+
+# Assignment 8
+
+4A.Plotting a normal Distribution graph by using its equation,keeping standard deviation as constant and its mean as changing
+
