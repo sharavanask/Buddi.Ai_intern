@@ -33,3 +33,15 @@
 
 4A.Plotting a normal Distribution graph by using its equation,keeping standard deviation as constant and its mean as changing
 
+# Assignment 9 
+
+5.PLotting bias variance tradeoff with different types of polynomials upto biquadratic degreee
+
+# Assignment 10
+
+5.PLotting bias variance tradeoff with different types of polynomials upto decic  degree
+
+# Assignment 11
+
+6.Implementation of Gradient  descent curve by finding b0 b1 values of linear polynomials and plotting aginst its epoc  
+
